@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Akwafa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="intro">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Akwafa</span>
+      </div>
+      <div class="intro-copy">
+        <p class="eyebrow">Créez votre profil</p>
+        <h1>Vos informations, <span>en un scan.</span></h1>
+        <p>Complétez le formulaire puis générez une fiche partageable et un QR code unique.</p>
+      </div>
+      <div class="privacy-note">
+        <span aria-hidden="true">◎</span>
+        <p><strong>Données privées</strong><br>Les informations restent enregistrées dans votre navigateur.</p>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <form id="info-form">
+        <div class="step-heading">
+          <div>
+            <p class="eyebrow">Informations personnelles</p>
+            <h2>Votre fiche</h2>
+          </div>
+          <span id="completion">0 %</span>
+        </div>
+
+        <div class="progress"><span id="progress-bar"></span></div>
+
+        <fieldset>
+          <legend>Identité</legend>
+          <div class="field-grid">
+            <label>Prénom
+              <input name="firstName" autocomplete="given-name" placeholder="Camille" required>
+            </label>
+            <label>Nom
+              <input name="lastName" autocomplete="family-name" placeholder="Martin" required>
+            </label>
+          </div>
+          <div class="field-grid">
+            <label>E-mail
+              <input type="email" name="email" autocomplete="email" placeholder="camille@example.com" required>
+            </label>
+            <label>Téléphone
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+33 6 12 34 56 78">
+            </label>
+          </div>
+          <label>Date de naissance
+            <input type="date" name="birthDate" autocomplete="bday">
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Profession</legend>
+          <div class="field-grid">
+            <label>Poste
+              <input name="jobTitle" autocomplete="organization-title" placeholder="Responsable marketing">
+            </label>
+            <label>Entreprise
+              <input name="company" autocomplete="organization" placeholder="Studio Martin">
+            </label>
+          </div>
+          <div class="field-grid">
+            <label>Site web
+              <input type="url" name="website" autocomplete="url" placeholder="https://example.com">
+            </label>
+            <label>Ville
+              <input name="city" autocomplete="address-level2" placeholder="Paris">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Questionnaire</legend>
+          <label>Présentation
+            <textarea name="bio" rows="4" placeholder="Présentez-vous en quelques lignes..."></textarea>
+          </label>
+          <label>Commentaire ou besoin
+            <textarea name="message" rows="3" placeholder="Ajoutez une demande, un commentaire ou une préférence..."></textarea>
+          </label>
+        </fieldset>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>J’accepte que ces informations soient utilisées pour créer ma fiche partageable.</span>
+        </label>
+
+        <button class="primary-button" type="submit">Créer ma fiche <span aria-hidden="true">→</span></button>
+      </form>
+
+      <section id="result" class="result" hidden aria-live="polite">
+        <button id="back-button" class="back-button" type="button">← Modifier</button>
+        <div class="result-heading">
+          <p class="eyebrow">Votre profil est prêt</p>
+          <h2 id="profile-name"></h2>
+        </div>
+        <div class="qr-panel">
+          <div id="qrcode"></div>
+          <p>Scannez pour ouvrir la fiche</p>
+        </div>
+        <div class="result-actions">
+          <button id="download-qr" class="secondary-button" type="button">Télécharger le QR</button>
+          <button id="download-json" class="text-button" type="button">Exporter les données</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
